@@ -24,38 +24,7 @@ main{
   max-width: 90.612rem;
 }
 
-/* Cabeçalho */
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 80px;
-  background-color: #0c0f0f;
-}
-
-.logo{
-  width: 80px;
-height: auto;
-}
-
-div.linksp{
-  display: flex;
-gap: 40px;
-}
-
-.containerheader {
-  max-width: 120rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  padding: 1.1875rem 0 1.1875rem 55.5rem;
-}
-
-.logo img {
-  width: 8rem;
-  height: 8rem;
-}
 
 /* Home */
 
@@ -92,9 +61,13 @@ h1{
 
 .cabecalho{
 .digger{
-  font-size: 5rem;
-  margin-top: -45rem;
+  font-size: 10rem;
+  margin-top: -15rem;
   height: 6,625rem;
+
+  h1{
+   font-size: 5rem;
+  }
 }
 
 margin-bottom: 10rem;
@@ -106,6 +79,10 @@ justify-content: center;
 display: flex ;
 flex-direction: column;
 
+h1{
+  font-size: 5rem;
+}
+}
 
 h1{
   font-family: 'Roboto-Serif', Serif;
@@ -125,8 +102,19 @@ h1{
 .nsei{
   display: flex;
   padding-top: 3rem;
-}
 
+
+  .regionais:hover {
+    transform: scale(1.1); 
+    transition: transform 0.3s ease;
+  }
+
+
+
+  .globais:hover {
+    transform: scale(1.1); /* Slight zoom */
+    transition: transform 0.3s ease;
+  }
 }
 
 
@@ -213,7 +201,7 @@ footer .container {
 
 .impactoconflitos{
 text-align: center; 
-background: #0e1312;
+background: #141A19;
 height: 21.75rem;
 
 
@@ -266,6 +254,5 @@ height: 21.75rem;
 .youtube{
   color: #DC2626;
 }
-
 
 }

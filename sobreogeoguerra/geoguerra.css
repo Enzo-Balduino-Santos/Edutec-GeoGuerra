@@ -35,7 +35,7 @@ body {
   background-color: #0c0f0f;
   padding: 3.75rem 0;
   
-  .container-img {
+.container-img {
       display: flex;
       justify-content: center; /* centraliza horizontalmente */
       align-items: center;     /* centraliza verticalmente (se tiver altura definida) */
