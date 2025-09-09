@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Serif:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* Base para rem */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0c0f0f;
+  color: white;
+  line-height: 1.6;
+}
+
+.pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 5rem;
+  background-color: #0c0f0f;
+}
+
+.logo {
+  width: 5rem;
+  height: auto;
+}
+
+.navegacao {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.navegacao a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: opacity 0.3s;
+}
+
+.navegacao a:hover {
+  opacity: 0.8;
+}
+
+/* Conteúdo Principal */
+.principal {
+  flex: 1;
+  padding: 2.5rem 5rem;
+  max-width: 90rem;
+  margin: 0 auto;
+}
+
+.titulo {
+  font-family: 'Roboto Serif', serif;
+  font-size: 3.75rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 3.75rem;
+  color: white;
+}
+
+.secao-equipe {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.titulo-secao {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 3.75rem;
+  color: white;
+}
+
+/* Membros da Equipe */
+.membro-equipe {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 3.75rem;
+  padding: 2.5rem;
+  background-color: #212b2a;
+  border-radius: 1.25rem;
+}
+
+.membro-equipe:nth-child(even) {
+  background-color: #141a19;
+  flex-direction: row-reverse;
+}
+
+.foto-membro {
+  width: 12.5rem;
+  height: 12.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.info-membro {
+  flex: 1;
+}
+
+.nome-membro {
+  font-family: 'Roboto Serif', serif;
+  font-size: 2.25rem;
+  font-weight: 400;
+  margin-bottom: 0.9375rem;
+  color: white;
+}
+
+.primeira-letra {
+  font-weight: 700;
+}
+
+.funcao-membro {
+  font-size: 1.125rem;
+  color: white;
+  opacity: 0.9;
+}
+
+
+/* Design Responsivo */
+@media (max-width: 48rem) {
+  .cabecalho {
+    padding: 1.25rem;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .navegacao {
+    gap: 1.25rem;
+  }
+
+  .principal {
+    padding: 1.25rem;
+  }
+
+  .titulo {
+    font-size: 2.5rem;
+  }
+
+  .membro-equipe {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .membro-equipe:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .foto-membro {
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+
+  .nome-membro {
+    font-size: 1.75rem;
+  }
+
+  .rodape {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .navegacao-rodape {
+    flex-direction: column;
+    gap: 1.875rem;
+  }
+}

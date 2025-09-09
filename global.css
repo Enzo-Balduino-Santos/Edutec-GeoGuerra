@@ -1,0 +1,93 @@
+
+
+.rodape-principal {
+  background-color: #141a19;
+  padding: 3rem 5rem;
+  margin-top: 3.75rem;
+}
+
+.conteudo-rodape {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3.75rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.marca-rodape p {
+  color: #d1d5db;
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  margin-top: 1rem;
+}
+
+.logo-rodape {
+  width: 7.0625rem;
+  height: 6.25rem;
+}
+
+.navegacao-rodape h3,
+.informacoes-rodape h3 {
+  color: #ffffff;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.navegacao-rodape ul,
+.informacoes-rodape ul {
+  list-style: none;
+}
+
+.navegacao-rodape li,
+.informacoes-rodape li {
+  margin-bottom: 0.5rem;
+}
+
+.navegacao-rodape a,
+.informacoes-rodape a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  transition: color 0.3s ease;
+}
+
+.navegacao-rodape a:hover,
+.informacoes-rodape a:hover {
+  color: #4a90e2;
+}
+
+.cabecalho {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem 0;
+}
+
+.cabecalho .container-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo img {
+  width: 3.75rem;
+  height: 3.3125rem;
+}
+
+.navegacao {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.link-navegacao {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+.link-navegacao:hover {
+  opacity: 0.8;
+}

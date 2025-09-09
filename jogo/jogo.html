@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz de Guerras</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Tela inicial */
+    #startScreen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      width: 100vw;
+    }
+
+    #startContainer {
+      background: #111;
+      padding: 1.875rem; 
+      border-radius: 0.625rem; 
+      box-shadow: 0 0 0.625rem #333; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9375rem; 
+    }
+
+    #startContainer h2 {
+      margin-bottom: 1.25rem;
+    }
+
+    .difficulty-btn {
+      padding: 0.75rem; 
+      width: 12.5rem; 
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 0.375rem; 
+      cursor: pointer;
+      margin: 0.5rem 0; 
+      font-size: 1.125rem; 
+    }
+
+    .difficulty-btn:hover {
+      background: #333;
+    }
+
+    /* Botão back no canto */
+    .back-btn {
+      position: fixed;
+      top: 0.9375rem; 
+      left: 0.9375rem; 
+      padding: 0.375rem 0.75rem; 
+      font-size: 0.875rem; 
+      background: #222;
+      border: none;
+      border-radius: 0.375rem; 
+      cursor: pointer;
+      color: #fff;
+      z-index: 999;
+    }
+
+    .back-btn:hover {
+      background: #444;
+    }
+
+    /* Layout de perguntas e respostas */
+    #quizLayout {
+      height: 100vh;
+      width: 90vw;
+      display: none; /* Inicia oculto */
+      justify-content: center;
+      align-items: center;
+      gap: 1.25rem; 
+    }
+
+    #questionContainer, #answerContainer {
+      background: #111;
+      padding: 1.25rem; 
+      border-radius: 0.625rem; 
+      box-shadow: 0 0 0.625rem #333; 
+      width: 18.75rem; 
+      height: 18.75rem; 
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+
+    #questionContainer {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem; 
+      padding: 0.625rem; 
+      position: relative; 
+    }
+
+    #questionNumber {
+      position: absolute;
+      bottom: 0.625rem; 
+      left: 0.625rem; 
+      font-size: 0.875rem; 
+      color: #ccc;
+    }
+
+    #answerContainer button {
+      padding: 0.75rem; 
+      background: #222;
+      color: #fff;
+      border: none;
+      border-radius: 0.375rem; 
+      cursor: pointer;
+      font-size: 1.125rem; 
+      width: 100%;
+      margin-bottom: 0.625rem;
+      transition: 0.3s;
+    }
+
+    #answerContainer button:hover {
+      background: #333;
+    }
+
+    /* Contêiner final */
+    #finalContainer {
+      display: none;
+      background: #111;
+      padding: 1.25rem; 
+      border-radius: 0.625rem; 
+      box-shadow: 0 0 0.625rem #333;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 31.25rem; 
+    }
+  </style>
+</head>
+<body>
+
+<div id="startScreen">
+  <div id="startContainer">
+    <h2>Escolha a Dificuldade</h2>
+    <button class="difficulty-btn" onclick="startQuiz('easy')">Fácil</button>
+    <button class="difficulty-btn" onclick="startQuiz('medium')">Médio</button>
+    <button class="difficulty-btn" onclick="startQuiz('hard')">Difícil</button>
+  </div>
+</div>
+
+<button class="back-btn" onclick="location.href='index.html'">⬅ Voltar</button>
+
+<script>
+  const easyQuestions = [
+    { question: "Em que ano a Rússia iniciou a invasão em grande escala da Ucrânia?", options: ["2014", "2022", "2008", "2010"], answer: "2022" },
+    { question: "Qual grupo controla a Faixa de Gaza desde 2007?", options: ["Fatah", "Hamas", "Hezbollah", "Talibã"], answer: "Hamas" },
+    { question: "O que significa 'guerra cibernética'?", options: ["Ataques online entre países", "Combate em espaço sideral", "Guerra com robôs", "Jogo de computador"], answer: "Ataques online entre países" },
+    { question: "A Guerra Civil da Síria começou em que ano?", options: ["2011", "2015", "2009", "2013"], answer: "2011" },
+    { question: "Em qual país ocorreu a intervenção militar liderada pelos EUA em 2001 após os ataques de 11 de setembro?", options: ["Iraque", "Síria", "Afeganistão", "Irã"], answer: "Afeganistão" },
+    { question: "Quem era o presidente iraquiano deposto em 2003?", options: ["Hosni Mubarak", "Muammar Gaddafi", "Saddam Hussein", "Bashar al-Assad"], answer: "Saddam Hussein" },
+    { question: "Qual é a capital da Ucrânia?", options: ["Minsk", "Kiev", "Varsóvia", "Moscou"], answer: "Kiev" },
+    { question: "O que é a Faixa de Gaza?", options: ["Uma cidade", "Uma região", "Um país", "Um continente"], answer: "Uma região" },
+    { question: "Cite uma forma comum de ataque em guerras cibernéticas.", options: ["DDoS", "Tanques", "Bombardeio", "Invasão terrestre"], answer: "DDoS" },
+    { question: "Quem é o atual presidente da Síria?", options: ["Bashar al-Assad", "Recep Erdogan", "Vladimir Putin", "Mahmoud Abbas"], answer: "Bashar al-Assad" },
+    { question: "Em qual país fica a cidade de Cabul?", options: ["Irã", "Síria", "Afeganistão", "Iraque"], answer: "Afeganistão" },
+    { question: "Qual foi a principal justificativa dos EUA para a invasão do Iraque em 2003?", options: ["Armas de destruição em massa", "Petróleo", "Terrorismo", "Aliança com Israel"], answer: "Armas de destruição em massa" },
+    { question: "Qual país europeu apoia fortemente a Ucrânia enviando armas e ajuda militar?", options: ["Alemanha", "França", "Polônia", "Portugal"], answer: "Polônia" },
+    { question: "Quem são os principais adversários de Israel no conflito com Gaza?", options: ["Hamas", "ONU", "OTAN", "Paquistão"], answer: "Hamas" },
+    { question: "O grupo extremista Talibã atuou principalmente em qual país?", options: ["Iraque", "Síria", "Afeganistão", "Líbia"], answer: "Afeganistão" }
+  ];
+
+  const mediumQuestions = [
+    { question: "Qual região da Ucrânia foi anexada pela Rússia em 2014?", options: ["Crimeia", "Donetsk", "Luhansk", "Odessa"], answer: "Crimeia" },
+    { question: "Qual foi a operação militar israelense em 2014 contra Gaza?", options: ["Margem Protetora", "Tempestade no Deserto", "Liberdade Duradoura", "Chumbo Fundido"], answer: "Margem Protetora" },
+    { question: "Cite um exemplo de ataque de guerra cibernética que afetou sistemas elétricos ou empresas.", options: ["Stuxnet", "Guerra Fria", "Pearl Harbor", "Chumbo Quente"], answer: "Stuxnet" },
+    { question: "Qual foi o estopim dos protestos que deram início à Guerra Civil da Síria?", options: ["Primavera Árabe", "Ataque químico", "Guerra do Golfo", "Atentado 11/09"], answer: "Primavera Árabe" },
+    { question: "Que grupo extremista surgiu no vácuo da Guerra do Iraque e se expandiu para a Síria?", options: ["Al-Qaeda", "ISIS/Estado Islâmico", "Talibã", "Hezbollah"], answer: "ISIS/Estado Islâmico" },
+    { question: "A OTAN retirou suas tropas do Afeganistão em que ano?", options: ["2021", "2014", "2019", "2017"], answer: "2021" },
+    { question: "Qual país apoiou diretamente o governo sírio com ataques aéreos?", options: ["Rússia", "China", "Irã", "EUA"], answer: "Rússia" },
+    { question: "Quem foi o líder do grupo Al-Qaeda morto em 2011?", options: ["Osama Bin Laden", "Ayman al-Zawahiri", "Al-Baghdadi", "Saddam Hussein"], answer: "Osama Bin Laden" },
+    { question: "Qual cidade ucraniana resistiu semanas sob cerco em 2022?", options: ["Mariupol", "Odessa", "Kiev", "Kharkiv"], answer: "Mariupol" },
+    { question: "A Faixa de Gaza faz fronteira com quais países?", options: ["Israel e Egito", "Síria e Jordânia", "Líbano e Egito", "Israel e Irã"], answer: "Israel e Egito" },
+    { question: "Qual vírus de computador ficou famoso em 2010 contra o Irã?", options: ["Stuxnet", "ILOVEYOU", "WannaCry", "NotPetya"], answer: "Stuxnet" },
+    { question: "Qual grupo sírio foi apoiado pelos EUA contra Assad?", options: ["Exército Sírio Livre", "Hezbollah", "Talibã", "ISIS"], answer: "Exército Sírio Livre" },
+    { question: "Em que ano os EUA invadiram o Iraque?", options: ["2003", "2001", "2005", "1999"], answer: "2003" },
+    { question: "Qual foi o objetivo declarado da invasão do Afeganistão em 2001?", options: ["Eliminar a Al-Qaeda", "Capturar petróleo", "Expandir território", "Apoiar Israel"], answer: "Eliminar a Al-Qaeda" },
+    { question: "Qual região da Síria foi devastada por armas químicas?", options: ["Ghouta", "Aleppo", "Raqqa", "Idlib"], answer: "Ghouta" }
+  ];
+
+  const hardQuestions = [
+    { question: "Qual tratado internacional a Rússia violou ao invadir a Ucrânia?", options: ["Memorando de Budapeste", "Tratado de Versalhes", "Pacto de Varsóvia", "Acordo de Genebra"], answer: "Memorando de Budapeste" },
+    { question: "Em que ano ocorreu a Guerra dos Seis Dias?", options: ["1967", "1973", "1956", "1982"], answer: "1967" },
+    { question: "Qual país foi acusado de ataques cibernéticos contra a Estônia em 2007?", options: ["Rússia", "China", "EUA", "Irã"], answer: "Rússia" },
+    { question: "Quantas pessoas aproximadamente morreram na Síria até 2021?", options: ["500 mil", "1 milhão", "200 mil", "100 mil"], answer: "500 mil" },
+    { question: "Quem foi o ditador do Iraque antes de Saddam Hussein?", options: ["Ahmed Hassan al-Bakr", "Nasser", "Hussein Kamel", "Abdul Rahman Arif"], answer: "Ahmed Hassan al-Bakr" },
+    { question: "Qual foi a cidade afegã onde os EUA mataram o líder Talibã Mansour?", options: ["Quetta", "Kandahar", "Kabul", "Herat"], answer: "Kandahar" },
+    { question: "Qual o nome do grupo mercenário russo na Guerra da Ucrânia?", options: ["Wagner", "Spetsnaz", "Blackwater", "Omon"], answer: "Wagner" },
+    { question: "Qual facção palestina rival do Hamas controla partes da Cisjordânia?", options: ["Fatah", "Hezbollah", "PLO", "Jihad Islâmica"], answer: "Fatah" },
+    { question: "Cite um exemplo de guerra cibernética além de Rússia e Ucrânia.", options: ["EUA vs Irã", "Brasil vs Chile", "Japão vs Coreia", "França vs Alemanha"], answer: "EUA vs Irã" },
+    { question: "Em que ano a Rússia entrou militarmente na Síria?", options: ["2015", "2012", "2017", "2010"], answer: "2015" },
+    { question: "Qual foi a operação dos EUA para capturar Saddam Hussein?", options: ["Red Dawn", "Desert Storm", "Iraqi Freedom", "Neptune Spear"], answer: "Red Dawn" },
+    { question: "Qual cidade iraquiana foi centro da insurgência contra os EUA em 2004?", options: ["Fallujah", "Bagdá", "Mosul", "Basra"], answer: "Fallujah" },
+    { question: "Qual região da Ucrânia possui a maior usina nuclear da Europa?", options: ["Zaporizhzhia", "Chernobyl", "Donetsk", "Lviv"], answer: "Zaporizhzhia" },
+    { question: "Qual país vizinho da Síria recebeu mais refugiados?", options: ["Turquia", "Líbano", "Jordânia", "Egito"], answer: "Turquia" },
+    { question: "Qual o nome do plano de reconstrução do Afeganistão em 2001?", options: ["Plano de Bonn", "Plano Marshall", "Plano Bagdá", "Plano Kabul"], answer: "Plano de Bonn" }
+  ];
+
+  let questions = [];
+  let currentQuestion = 0;
+  let score = 0;
+  let errors = 0;
+  let selectedDifficulty = "";
+  let quizLayoutEl; // Variável para guardar a referência ao layout do quiz
+
+  function startQuiz(difficulty) {
+    if (difficulty === "easy") { questions = [...easyQuestions]; selectedDifficulty = "Fácil"; }
+    else if (difficulty === "medium") { questions = [...mediumQuestions]; selectedDifficulty = "Médio"; }
+    else { questions = [...hardQuestions]; selectedDifficulty = "Difícil"; }
+
+    questions.sort(() => Math.random() - 0.5);
+    currentQuestion = 0; score = 0; errors = 0;
+
+    document.getElementById("startScreen").style.display = "none";
+    
+    if (!quizLayoutEl) {
+      createQuizLayout();
+    }
+    quizLayoutEl.style.display = "flex";
+    
+    showQuestion();
+  }
+
+  function createQuizLayout() {
+    quizLayoutEl = document.createElement("div");
+    quizLayoutEl.id = "quizLayout";
+
+    const questionContainer = document.createElement("div");
+    questionContainer.id = "questionContainer";
+
+    const questionText = document.createElement("span");
+    questionText.id = "questionText";
+    questionContainer.appendChild(questionText);
+
+    const questionNumber = document.createElement("div");
+    questionNumber.id = "questionNumber";
+    questionContainer.appendChild(questionNumber);
+
+    const answerContainer = document.createElement("div");
+    answerContainer.id = "answerContainer";
+
+    quizLayoutEl.appendChild(questionContainer);
+    quizLayoutEl.appendChild(answerContainer);
+
+    document.body.appendChild(quizLayoutEl);
+
+    const finalContainer = document.createElement("div");
+    finalContainer.id = "finalContainer";
+    document.body.appendChild(finalContainer);
+  }
+
+  function showQuestion() {
+    if (currentQuestion >= questions.length) {
+      showFinalResults();
+      return;
+    }
+
+    const q = questions[currentQuestion];
+    
+    document.getElementById("questionText").textContent = q.question;
+    
+    // *MUDANÇA AQUI:* Adicionado a variável da dificuldade na string
+    document.getElementById("questionNumber").innerText = `${currentQuestion + 1} / ${questions.length} (${selectedDifficulty})`;
+
+
+    const answerContainer = document.getElementById("answerContainer");
+    answerContainer.innerHTML = "";
+
+    q.options.forEach(option => {
+      const btn = document.createElement("button");
+      btn.textContent = option;
+      btn.onclick = () => checkAnswer(btn, q.answer);
+      answerContainer.appendChild(btn);
+    });
+  }
+
+  function checkAnswer(button, correctAnswer) {
+    const buttons = document.querySelectorAll("#answerContainer button");
+    buttons.forEach(b => b.disabled = true);
+
+    if (button.textContent === correctAnswer) {
+      button.style.backgroundColor = "green";
+      score++;
+    } else {
+      button.style.backgroundColor = "red";
+      errors++;
+      buttons.forEach(b => { if (b.textContent === correctAnswer) b.style.backgroundColor = "green"; });
+    }
+
+    setTimeout(() => { currentQuestion++; showQuestion(); }, 1500);
+  }
+
+  function showFinalResults() {
+    quizLayoutEl.style.display = "none";
+    const finalContainer = document.getElementById("finalContainer");
+    finalContainer.style.display = "block";
+    finalContainer.innerHTML = `
+      <h1>Fim do Quiz!</h1>
+      <p>Dificuldade: ${selectedDifficulty}</p>
+      <p>Acertos: ${score}</p>
+      <p>Erros: ${errors}</p>
+      <p>Total de Perguntas: ${questions.length}</p>
+      <p>Porcentagem de Acerto: ${Math.round((score / questions.length) * 100)}%</p>
+      <button class="difficulty-btn" onclick="location.reload()">Jogar de Novo</button>
+    `;
+  }
+</script>
+</body>
+</html>

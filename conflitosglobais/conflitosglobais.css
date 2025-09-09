@@ -1,0 +1,337 @@
+/* Estilos Base e Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0c0f0f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+.elemento-conflitos {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Seção Principal */
+.secao-principal {
+  height: 46.875rem;
+  background-image: url(https://c.animaapp.com/mellz9s3x7ZH5J/img/pexels-artguz-8079183.png);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navegacao-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6rem;
+  height: 5.9375rem;
+  z-index: 10;
+}
+
+.logotipo {
+  width: 5.0625rem;
+  height: 4.5rem;
+}
+
+.link-logotipo:hover .logotipo {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.botoes-navegacao {
+  display: flex;
+  gap: 2rem;
+}
+
+.botao-navegacao {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.botao-navegacao:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-0.125rem);
+}
+
+/* Título da Página */
+.titulo-pagina {
+  text-align: center;
+  padding: 3.75rem 0;
+  background-color: #0c0f0f;
+}
+
+.titulo-pagina h1 {
+  font-family: 'Roboto Serif', serif;
+  font-size: 3.75rem;
+  font-weight: 400;
+  color: #ffffff;
+  -webkit-text-stroke: 0.09375rem #ffffff;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Cartões de Conflito */
+.cartao-conflito {
+  display: flex;
+  max-width: 72rem;
+  margin: 2.5rem auto;
+  background-color: #141a19;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0rem 0.25rem 0.375rem -0.25rem rgba(0, 0, 0, 0.1), 0rem 0.625rem 0.9375rem -0.1875rem rgba(0, 0, 0, 0.1);
+}
+
+.imagem-conflito {
+  width: 24rem;
+  flex-shrink: 0;
+}
+
+.imagem-conflito img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conteudo-conflito {
+  flex: 1;
+  padding: 2rem;
+}
+
+.conteudo-conflito h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+
+  -webkit-text-stroke: 0.0625rem #ffffff;
+}
+
+.conteudo-conflito > p {
+  font-size: 1rem;
+  line-height: 1.5625rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+/* Pontos Principais */
+.pontos-principais {
+  margin-bottom: 1.5rem;
+}
+
+.pontos-principais h3 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
+  text-decoration: underline;
+}
+
+.pontos-principais ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pontos-principais li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5625rem;
+}
+
+.pontos-principais li::before {
+  content: "✓";
+  color: #22c55e;
+  font-weight: bold;
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+}
+
+/* Seção de Vídeos */
+.secao-videos {
+  margin-bottom: 1.5rem;
+}
+
+.secao-videos h3 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
+  text-decoration: underline;
+}
+
+.cartoes-video {
+  display: flex;
+  gap: 1rem;
+}
+
+.cartao-video {
+  flex: 1;
+  background-color: #212b2a;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  min-height: 7.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cabecalho-cartao-video {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icone-video {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  background-color: #dc2626;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: #ffffff;
+}
+
+.icone-video::before {
+  content: "▶";
+}
+
+.cartao-video h4 {
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: #ffffff;
+  margin: 0;
+  flex: 1;
+}
+
+.cartao-video a {
+  color: #2563eb;
+  text-decoration: underline;
+  font-size: 0.8125rem;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.cartao-video a:hover {
+  color: #1d4ed8;
+}
+
+/* Seção de Recursos */
+.secao-recursos h3 {
+  font-size: 1.375rem;
+  margin-bottom: 0.75rem;
+  text-decoration: underline;
+}
+
+.links-recursos {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.link-recurso {
+  display: flex;
+  align-items: center;
+  background-color: #212b2a;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  flex: 1;
+  min-width: 12.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.link-recurso:hover {
+  background-color: #2a3635;
+}
+
+.icone-link {
+  margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.link-recurso span:last-child {
+  text-decoration: underline;
+}
+
+
+
+
+/* Design Responsivo */
+@media (max-width: 48rem) {
+  .navegacao-principal {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    height: auto;
+  }
+
+  .botoes-navegacao {
+    gap: 1rem;
+  }
+
+  .cartao-conflito {
+    flex-direction: column;
+    margin: 1.25rem;
+  }
+
+  .imagem-conflito {
+    width: 100%;
+    height: 12.5rem;
+  }
+
+  .cartoes-video {
+    flex-direction: column;
+  }
+
+  .links-recursos {
+    flex-direction: column;
+  }
+
+  .conteudo-rodape {
+    grid-template-columns: 1fr;
+    gap: 1.875rem;
+    padding: 0 1.25rem;
+  }
+
+  .titulo-pagina h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Acessibilidade */
+a:focus-visible {
+  outline: 0.125rem solid #4a90e2;
+  outline-offset: 0.125rem;
+}
+
+button:focus-visible {
+  outline: 0.125rem solid #4a90e2;
+  outline-offset: 0.125rem;
+}
+
+/* Rolagem Suave */
+html {
+  scroll-behavior: smooth;
+}
