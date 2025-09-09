@@ -1,9 +1,6 @@
 
 
 
-:root {
-  font-size: 62.5%;
-}
 
 * {
   padding: 0;
@@ -11,6 +8,10 @@
   box-sizing: border-box;
   color: #ffffff;
 }
+
+
+
+
 
 body {
   font-size: 1.6rem;
@@ -123,6 +124,7 @@ h1{
 
 .nsei{
   display: flex;
+  padding-top: 3rem;
 }
 
 }
@@ -215,6 +217,7 @@ background: #0e1312;
 height: 21.75rem;
 
 
+
   h2{
     padding-top: 2.5rem;
   }
@@ -224,10 +227,12 @@ height: 21.75rem;
 
 
 .informacao{
+  margin-bottom: 3rem;
   gap: 2rem;
   margin-top: 3rem;
   display: flex;
   justify-content: center;
+  
  section{
   border-radius: 0.75rem;
   background: #212B2A;
