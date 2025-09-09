@@ -12,18 +12,8 @@ body {
   font-size: 1rem;
 }
 
-.container {
-  max-width: 75rem;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
 
-.container-cabecalho {
-  width: 100%;
-  padding: 0 2.5rem;
-}
-
-.heroi {
+.secao-hero {
   background-image: url('../sobreogeoguerra/imagensgeoguerra/s/inicio.svg');
   background-size: cover;
   background-position: center;
@@ -31,57 +21,31 @@ body {
   min-height: 25rem;
   display: flex;
   flex-direction: column;
-  position: relative;
+  position: relative;
 }
 
-.heroi::before {
-  content: ''; /* é o coiso para dar sombra para imagem lá*/
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+.container {
+  max-width: 100rem; 
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.cabecalho {
-  position: relative;
-  z-index: 2;
-  padding: 1.25rem 0;
-}
-
-.cabecalho .container-cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.logo img {
-  width: 3.75rem;
-  height: 3.3125rem;
-}
-
-.navegacao {
-  display: flex;
-  gap: 2.5rem;
-}
-
-.link-navegacao {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 400;
-  transition: opacity 0.3s ease;
-}
-
-.link-navegacao:hover {
-  opacity: 0.8;
-}
 
 .secao-titulo {
   background-color: #0c0f0f;
   padding: 3.75rem 0;
+  
+  .container-img {
+      display: flex;
+      justify-content: center; /* centraliza horizontalmente */
+      align-items: center;     /* centraliza verticalmente (se tiver altura definida) */
+      height: 100vh;           /* ocupa a tela inteira (opcional) */
+  }
+
+  img {
+      max-width: 100%;
+      height: auto;
+  }
 }
 
 .titulo-heroi {
@@ -220,7 +184,7 @@ color: #ffffff;
 
 .secao-suporte {
   background-color: #141a19;
-  padding: 3.75rem 0;
+  padding: 2.75rem 0;
 }
 
 .titulo-suporte {
@@ -308,8 +272,6 @@ color: #ffffff;
   transform: translateY(0);
 }
 
-
-
 @media (max-width: 64rem) {
   .grade-valores {
     grid-template-columns: 1fr;
@@ -320,6 +282,10 @@ color: #ffffff;
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
+}
+
+footer{
+  background-color: #141a19;
 }
 
 @media (max-width: 48rem) {
@@ -359,11 +325,6 @@ color: #ffffff;
   }
 }
 
-@media (max-width: 48rem) {
-  .container-cabecalho {
-    padding: 0 1.25rem;
-  }
-}
 
 @media (max-width: 30rem) {
   .titulo-heroi {

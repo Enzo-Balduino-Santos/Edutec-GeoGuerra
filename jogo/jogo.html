@@ -157,7 +157,8 @@
   </div>
 </div>
 
-<button class="back-btn" onclick="location.href='index.html'">⬅ Voltar</button>
+<button class="back-btn" onclick="location.href='../home/index.html'">⬅ Voltar</button>
+
 
 <script>
   const easyQuestions = [
@@ -277,7 +278,7 @@
     
     document.getElementById("questionText").textContent = q.question;
     
-    // *MUDANÇA AQUI:* Adicionado a variável da dificuldade na string
+    // MUDANÇA AQUI: Adicionado a variável da dificuldade na string
     document.getElementById("questionNumber").innerText = `${currentQuestion + 1} / ${questions.length} (${selectedDifficulty})`;
 
 

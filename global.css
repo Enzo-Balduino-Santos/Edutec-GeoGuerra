@@ -1,9 +1,75 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #0c0f0f;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: 'Roboto Serif', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-align: left;
+}
+
+
+.navegacao-principal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 6rem;
+  height: 5.9375rem;
+}
+
+.logo {
+  width: 5.0625rem;
+  height: 4.5rem;
+}
+
+.link-logo:hover .logo {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.botoes-navegacao {
+  display: flex;
+  gap: 2rem;
+}
+
+.botao-nav {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.botao-nav:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-0.125rem);
+}
+
+.elemento-conflitos {
+  width: 100%;
+  min-height: 100vh;
+}
+
 
 
 .rodape-principal {
   background-color: #141a19;
   padding: 3rem 5rem;
-  margin-top: 3.75rem;
+
 }
 
 .conteudo-rodape {
@@ -90,4 +156,20 @@
 
 .link-navegacao:hover {
   opacity: 0.8;
+}
+
+
+
+
+@media (max-width: 48rem) {
+  .navegacao-principal {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem 1.25rem;
+    height: auto;
+  }
+
+  .botoes-navegacao {
+    gap: 1rem;
+  }
 }
