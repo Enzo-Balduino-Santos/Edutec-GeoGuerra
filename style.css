@@ -119,6 +119,22 @@ h1{
 
 
 
+
+.nsei {
+  img {
+    filter: grayscale(100%);
+    opacity: 0.5; /* começa com pouca opacidade */
+    transition: opacity 0.3s ease;
+  }
+
+  img:hover {
+    filter: grayscale(0%);
+    opacity: 10; /* volta para normal no hover */
+  }
+}
+
+
+
 /* Rodapé */
 
 footer {
