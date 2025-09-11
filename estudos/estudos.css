@@ -15,6 +15,13 @@
   --h34:#9333EA;
 }
 
+h1{
+  font-family: 'Roboto-Serif' serif;
+}
+h2{
+  font-family: 'Roboto-Serif' serif;
+}
+
 .container{
   display: flex;
   gap: 10px;
@@ -235,16 +242,16 @@ h2{
   display: flex;
   margin-bottom: 4.94rem;
   cursor: pointer;
+
 }
 
 
 
 .siema{
-    max-width: 287px;
+    max-width: 100svw;
     height: 435px;
-    align-items: center;
-    justify-content: center;
-    margin-left:50rem;
+    margin-left: 50rem;
+    
 
 }
 

@@ -137,7 +137,7 @@ body {
 .pontos-principais h3 {
   font-size: 1.375rem;
   margin-bottom: 0.75rem;
-  text-decoration: underline;
+  
 }
 
 .pontos-principais ul {
@@ -169,7 +169,7 @@ body {
 .secao-videos h3 {
   font-size: 1.375rem;
   margin-bottom: 0.75rem;
-  text-decoration: underline;
+  
 }
 
 .cartoes-video {
@@ -237,7 +237,7 @@ body {
 .secao-recursos h3 {
   font-size: 1.375rem;
   margin-bottom: 0.75rem;
-  text-decoration: underline;
+  
 }
 
 .links-recursos {
@@ -270,13 +270,6 @@ body {
   height: 1rem;
   flex-shrink: 0;
 }
-
-.link-recurso span:last-child {
-  text-decoration: underline;
-}
-
-
-
 
 /* Design Responsivo */
 @media (max-width: 48rem) {

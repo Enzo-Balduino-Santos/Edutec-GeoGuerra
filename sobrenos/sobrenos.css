@@ -23,14 +23,8 @@ body {
   flex-direction: column;
 }
 
-/* Cabeçalho */
-.cabecalho {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 5rem;
-  background-color: #0c0f0f;
-}
+
+
 
 .logo {
   width: 5rem;
@@ -53,7 +47,7 @@ body {
   opacity: 0.8;
 }
 
-/* Conteúdo Principal */
+
 .principal {
   flex: 1;
   padding: 2.5rem 5rem;
@@ -84,7 +78,7 @@ body {
   color: white;
 }
 
-/* Membros da Equipe */
+
 .membro-equipe {
   display: flex;
   align-items: center;
@@ -131,7 +125,7 @@ body {
 }
 
 
-/* Design Responsivo */
+
 @media (max-width: 48rem) {
   .cabecalho {
     padding: 1.25rem;
