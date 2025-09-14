@@ -4,19 +4,23 @@
   <meta charset="UTF-8" />
   <title>Quiz de Guerras</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: url(https://c.animaapp.com/me8uleruKPHS7t/img/guerra-civil-s-ria.png);
-      color: #fff;
-      font-family: sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    /* Tela inicial */
+body {
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-image 1s ease-in-out; /* transição suave */
+}
+  
+ 
     #startScreen {
       display: flex;
       justify-content: center;
@@ -162,6 +166,26 @@
 </a>
 
 <script>
+  const backgrounds = [
+    "https://images.pexels.com/photos/13810632/pexels-photo-13810632.jpeg",
+    "https://images.pexels.com/photos/20258/pexels-photo.jpg",
+    "https://images.pexels.com/photos/163347/war-desert-guns-gunshow-163347.jpeg",
+    "https://images.pexels.com/photos/163467/war-desert-guns-gunshow-163467.jpeg"
+  ];
+
+  let currentBg = 0;
+
+  function changeBackground() {
+    document.body.style.backgroundImage = `url(${backgrounds[currentBg]})`;
+    currentBg = (currentBg + 1) % backgrounds.length;
+  }
+
+  // troca a cada 5 segundos
+  setInterval(changeBackground, 5000);
+
+  // define a primeira imagem logo no início
+  window.onload = changeBackground;
+
   const easyQuestions = [
     { question: "Em que ano a Rússia iniciou a invasão em grande escala da Ucrânia?", options: ["2014", "2022", "2008", "2010"], answer: "2022" },
     { question: "Qual grupo controla a Faixa de Gaza desde 2007?", options: ["Fatah", "Hamas", "Hezbollah", "Talibã"], answer: "Hamas" },
@@ -323,6 +347,7 @@
       <p>Porcentagem de Acerto: ${Math.round((score / questions.length) * 100)}%</p>
       <button class="difficulty-btn" onclick="location.reload()">Jogar de Novo</button>
     `;
+
   }
 </script>
 </body>
